@@ -1,0 +1,49 @@
+<html>
+<head>
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.3.0/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/site.css">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<div class="topbar">
+    <div class="topbar-inner">
+        <div class="container-fluid">
+            <a class="brand">{{ site.title }}</a>
+            <ul class="nav">
+            <li {% if active_page == "home" %}class="active"{% endif %}><a href="{% url index %}">Blog</a></li>
+                {% for page in pages %}
+                    <li {% if active_page == page.slug %}class="active"{% endif %}><a href="{% url view_post page.slug %}">{{ page }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    {# <div class="hero-unit">SOmethin</div>  #}
+    <div class="sidebar">
+        <div class="well">
+             <div class="tags_block">
+                {% if tags %}
+                    <h5>Tags</h5>
+                {% for tag in tags %}
+                    <span class="label {{ tag.style }}">{{ tag }}</span>
+                {% endfor %}
+                {% endif %}
+            </div>
+            <div class="social_block">
+                <h5>Profiles</h5>
+                {% for social in socials %}
+                    <a target="_blank" href="{{ social.url }}"><img src="{{ social.favicon }}"/>{{ social.label }}</a>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+
+</body>
+</html>

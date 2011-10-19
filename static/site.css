@@ -1,0 +1,27 @@
+body {
+    padding-top: 60px;
+}
+
+.label {
+    margin-left: 1em;
+}
+
+.pullright {
+    float: right;
+    margin-top: 15px;
+}
+
+.social_block a{
+    display:block;
+    margin: 0 0 0.4em 1em;
+}
+
+.social_block img{
+    margin-right: 0.4em;
+    width: 16px;
+    height: 16px;
+}
+
+.topbar .brand{
+    margin-left: 0.1em;
+}

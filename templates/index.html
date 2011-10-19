@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}{{ site.title }}{% endblock %}
+
+{% load markup %}
+
+{% block content %}
+
+{% if posts %}
+{% for post in posts %}
+   <div class="page-header">
+    <h2>{{ post.name }}
+    <small>
+    {% if post.tags.count %}
+        {% for tag in post.tags.all %}
+            <span class="label {{ tag.style }}">{{ tag }}</span>
+         {% endfor %}
+    {% endif %}<span class="pullright">{{ post.datetime }}</span></small>
+    </h2>
+    </div>
+
+    <hrule></hrule>
+    {{ post.render_body|markdown }}
+
+{% endfor %}
+{% endif %}
+
+{% endblock %}
