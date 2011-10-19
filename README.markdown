@@ -1,6 +1,6 @@
 # Blogstrap
 
-> A simple blog engine on Django using Twitter's Bootstrap.
+> A simple blog engine built on Django using Twitter's Bootstrap for styling.
 
 
 Use Django's admin interface to create posts, pages, tags and social profile links. All post text is in *markdown* and so the requirements include Django 1.2+ and python-markdown.  
